@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      core-network 是纯网络逻辑库,不需要 <application> 标签。
+      之前残留的 icon/label/theme/allowBackup 等属性是这个 module
+      最早被误创建成 Application 类型时留下的,和 app 模块的
+      <application> 标签合并时可能产生意外的属性覆盖/丢失问题
+      (比如这次 android:networkSecurityConfig 属性莫名失效)。
+      Library 模块的 Manifest 应该保持精简,只声明真正需要的权限
+      或组件(比如未来如果要用 ContentProvider 就在这里声明)。
+    -->
+
+</manifest>

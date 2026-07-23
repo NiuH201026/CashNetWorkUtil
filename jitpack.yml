@@ -1,0 +1,10 @@
+# JitPack 构建配置
+# 参考: https://docs.jitpack.io/building/
+
+jdk:
+  - openjdk17
+
+# AGP 8.12.0 + Kotlin 2.0.21 需要 JDK 17+
+# JitPack 默认会执行:
+#   ./gradlew clean build publishToMavenLocal
+# 项目已配置 maven-publish，JitPack 会自动发现三个 library 模块的 publication

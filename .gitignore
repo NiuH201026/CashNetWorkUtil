@@ -1,0 +1,32 @@
+# IDE
+*.iml
+.idea/
+.DS_Store
+
+# Gradle
+.gradle
+/build
+/captures
+.externalNativeBuild
+.cxx
+
+# Local properties (SDK path)
+local.properties
+
+# Signing / Keystore
+*.jks
+*.keystore
+*.p12
+*.pem
+keystore.properties
+signing.properties
+
+# Account / Secret configs
+*.secret
+*_secret.*
+*secret.properties
+account.properties
+credentials.*
+
+# Gradle wrapper jar（保留脚本和配置，jar 由 wrapper 自动下载）
+!gradle/wrapper/gradle-wrapper.jar
