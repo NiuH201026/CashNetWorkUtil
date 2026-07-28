@@ -70,7 +70,6 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose) // observeAsState 需要这个
     implementation(libs.androidx.lifecycle.viewmodel.compose) // viewModel() 需要这个
 
-    implementation(project(":core-repository"))
     implementation("com.squareup.okhttp3:mockwebserver:4.12.0") // 只在debug测试期用,真实项目里这个依赖记得后面删掉
 
 }

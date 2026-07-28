@@ -64,4 +64,3 @@ rootProject.name = "NetWorkUtil"
 include(":app")
 include(":core-network")
 include(":core-base")
-include(":core-repository")
