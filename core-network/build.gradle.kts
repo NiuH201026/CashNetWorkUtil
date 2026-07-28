@@ -48,7 +48,7 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 groupId = "com.cash"
                 artifactId = "core-network"   // core-repository/core-base模块这里改成对应名字
-                version = "1.0.0"
+                version = "1.0.1"
                 from(components["release"])
             }
         }
