@@ -1,14 +1,13 @@
 # CashNetWorkUtil
 
-基于 Retrofit + RxJava2 的 Android 网络请求库，提供三个分层模块。
+基于 Retrofit + RxJava2 的 Android 网络请求库，提供两个分层模块。
 
 ## 模块
 
 | 模块 | 说明 | 依赖 |
 |---|---|---|
-| `core-network` | 网络基础层：Retrofit 工厂、拦截器、响应封装、Rx 线程切换 | — |
+| `core-network` | 网络基础层：Retrofit 工厂、拦截器、响应封装、Rx 线程切换、BaseRepository | — |
 | `core-base` | 表现层基础：BaseViewModel、UiState、LiveData | core-network |
-| `core-repository` | 数据仓库层：BaseRepository 抽象 | core-network |
 
 ## 集成
 
@@ -29,14 +28,11 @@ dependencyResolutionManagement {
 ### 2. 添加依赖
 
 ```kotlin
-// 基础网络层（必选）
-implementation("com.github.NiuH201026.CashNetWorkUtil:core-network:v1.0.0")
+// 基础网络层 + Repository 基类（必选）
+implementation("com.github.NiuH201026.CashNetWorkUtil:core-network:v1.0.1")
 
 // 表现层基础（可选，需要 ViewModel/LiveData 时引入）
-implementation("com.github.NiuH201026.CashNetWorkUtil:core-base:v1.0.0")
-
-// 数据仓库层（可选，需要 Repository 抽象时引入）
-implementation("com.github.NiuH201026.CashNetWorkUtil:core-repository:v1.0.0")
+implementation("com.github.NiuH201026.CashNetWorkUtil:core-base:v1.0.1")
 ```
 
 ## 核心类
@@ -55,6 +51,11 @@ interface Api : IApiResponse {
     @GET("data")
     fun getData(): Observable<BaseResponse<DataBean>>
 }
+
+// Repository 基类
+class MyRepository : BaseRepository() {
+    fun fetchData(): Observable<DataBean> = ...
+}
 ```
 
 ### core-base
@@ -63,15 +64,6 @@ interface Api : IApiResponse {
 // ViewModel 基类，统一管理 Loading/Error/Success 状态
 class MyViewModel : BaseViewModel() {
     val data: LiveData<UiState<List<Item>>> = ...
-}
-```
-
-### core-repository
-
-```kotlin
-// Repository 基类
-class MyRepository : BaseRepository() {
-    fun fetchData(): Observable<DataBean> = ...
 }
 ```
 
